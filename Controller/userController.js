@@ -24,7 +24,7 @@ const register = async(req, res) => {
         password: hashPassword,
     };
     arr.push(data)
-    const token=jwt.sign({email:details.email},process.env.secretkey,{expiresIn:"2 days"})
+    const token=jwt.sign({email:details.email},process.env.secretkey,{expiresIn:"2d"})
     res.send({ Msg: "User is register", result: data,token:token })
 }
 const login = async (req, res) => {
@@ -37,7 +37,7 @@ const login = async (req, res) => {
     if (!validate) {
         return res.status(401).send({ Msg: "User Password is Wrong" })
     }
-    const token=jwt.sign({email:details.email},process.env.secretkey,{expiresIn:"2 days"})
+    const token=jwt.sign({email:details.email},process.env.secretkey,{expiresIn:"2d"})
     return res.status(200).send({ Msg: "User is log in succesfully",token:token })
 }
 
