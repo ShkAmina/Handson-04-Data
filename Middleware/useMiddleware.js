@@ -11,5 +11,6 @@ const validated = (req, res, next) => {
     // else{
     //     res.send("User Not Allowed")
     // }
+    
 }
 module.exports = validated
