@@ -5,7 +5,7 @@ const jwt=require("jsonwebtoken")
 // const { JsonWebTokenError } = require("jsonwebtoken");
 const saltRound = 10
 
-const register = async(req, res) => {
+const register = async (req, res) => {
     const details = req.body;
     //    console.log(details)
     const comp = arr.find((item) => details.email === item.email)
@@ -17,6 +17,7 @@ const register = async(req, res) => {
     // console.log("Random Sting Generated :", generatesalt)
 
     const hashPassword = await bcrypt.hash(details.password, saltRound);
+    
     const data = {
         name : details.name,
         phone : details.phone,
